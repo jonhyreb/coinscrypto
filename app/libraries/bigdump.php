@@ -40,7 +40,7 @@ error_reporting(E_ALL);
 
 // Database configuration
 
-$db_server   = 'localhost';
+$db_server   = '85.255.9.69';
 $db_name     = 'import_restore';
 $db_username = 'root';
 $db_password = ''; 

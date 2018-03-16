@@ -72,7 +72,7 @@
   }
   $(function(){
     window.socket = {};
-    socket = io.connect( 'http://localhost:8081' );
+    socket = io.connect( 'http://85.255.9.69:8081' );
     socket.on( 'doTrade', function( data ) {
       console.log('data socket:',data);
       var market_id=data.market_id;

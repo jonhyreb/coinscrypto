@@ -22,7 +22,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '85.255.9.69',
 			'database'  => 'ex_app',
 			'username'  => 'root',
 			'password'  => 'root',
@@ -33,7 +33,7 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
+			'host'     => '85.255.9.69',
 			'database' => 'homestead',
 			'username' => 'homestead',
 			'password' => 'secret',
