@@ -114,7 +114,7 @@ return array(
 		'cluster' => false,
 
 		'default' => array(
-			'host'     => '127.0.0.1',
+			'host'     => '85.255.9.69',
 			'port'     => 6379,
 			'database' => 0,
 		),

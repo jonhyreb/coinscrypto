@@ -13,7 +13,7 @@ class Wallet extends Eloquent
 
     public function connectJsonRPCclient($wallet_username,$wallet_password,$wallet_ip,$port)
     {       
-        $this->jsonRPCclient = new jsonRPCClient('http://' . $wallet_username . ':' .$wallet_password . '@' . $wallet_ip . ':' . $port.'/');//new jsonRPCClient('http://thuynguyenrpc:FDGFGFHGJHJKMSDKKGHJGFHGCXCKLHKGHGJHMNMBN@127.0.0.1:8332/'); //
+        $this->jsonRPCclient = new jsonRPCClient('http://' . $wallet_username . ':' .$wallet_password . '@' . $wallet_ip . ':' . $port.'/');//new jsonRPCClient('http://thuynguyenrpc:FDGFGFHGJHJKMSDKKGHJGFHGCXCKLHKGHGJHMNMBN@85.255.9.69:8332/'); //
     }
 
     public function getjsonRPCclient(){
