@@ -54,7 +54,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '85.255.9.69',
 			'database'  => 'nirotech_ex',
 			'username'  => 'root',
 			'password'  => 'Azores%2018',
@@ -65,7 +65,7 @@ return array(
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => 'localhost',
+			'host'     => '89.255.9.69',
 			'database' => 'forge',
 			'username' => 'forge',
 			'password' => '',
