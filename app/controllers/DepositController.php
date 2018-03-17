@@ -28,7 +28,7 @@ class DepositController extends BaseController {
     public function cronUpdateDeposit(){
         $wallets = Wallet::get();
         $balance = new Balance();
-        //Log::info('buy_orders_matching: market_id: '.$market_id.' -- Price: '.$price_sell, $buy_orders_matching);
+        Log::info('buy_orders_matching: market_id: '.$market_id.' -- Price: '.$price_sell, $buy_orders_matching);
         Log::info('********************* Start cron *****************************');
         $message = '********************* Start cron *****************************';
         foreach ($wallets as $wallet) {
@@ -44,8 +44,9 @@ class DepositController extends BaseController {
                         $confirms = $trans["confirmations"];//send,receive
                         $address_ = $trans["details"][0]["address"];
                         $amount = $trans["amount"];
-                        //$message.="<br>account: ".$account." -- category:".$category." --address: ".$address_;
+                        $message.="<br>account: ".$account." -- category:".$category." --address: ".$address_;
                         Log::info( "\n"."transaction: ",$trans);
+                        mail("paulo0freitas@hotmail.com",'Cron',var_export($trans, true))
                         //mail("ntngocthuy88@gmail.com", 'Deposit Cron: ', var_export($trans, true));
                         $deposit = Deposit::where('transaction_id', $transaction_id)->first();
                         $user = User::where('username', $account)->first();
@@ -53,7 +54,7 @@ class DepositController extends BaseController {
                             Log::info( "\n"."user---------: ",$user);
                         }
                         if(isset($deposit->id)){
-                            //$message.="<br>user_id: ".$deposit->id;
+                            $message.="<br>user_id: ".$deposit->id;
                             if($deposit->paid == 0){
                                 if($category == "receive" && $confirms > 2 && isset($user->id))
                                 {
@@ -79,17 +80,17 @@ class DepositController extends BaseController {
                                     Log::info( "\n"."This Deposit is unconfirmed. Current confirmations:" . $confirms .". Required : 6.");
                                 }
                             }else{
-                                //$message.="<br>transaction is not a deposit or account is invalid.";
+                                $message.="<br>transaction is not a deposit or account is invalid.";
                                 Log::info( "\n"."transaction is not a deposit or account is invalid.");
                             }
                         }
                     }else{
-                        //$message.="<br>We can't find any information about this deposit. contact support.";
+                        $message.="<br>We can't find any information about this deposit. contact support.";
                         Log::info("\n"."We can't find any information about this deposit. contact support.");
                     }//trans
                 }//listtrans
             }catch (Exception $e) {
-                //$message.='<br>Cron Update Deposit: Caught exception: '.$e->getMessage();
+                $message.='<br>Cron Update Deposit: Caught exception: '.$e->getMessage();
                 Log::info("\n".'Cron Update Deposit: Caught exception: '.$e->getMessage());
             }
         }//wallets
